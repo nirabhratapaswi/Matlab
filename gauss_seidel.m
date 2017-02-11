@@ -22,8 +22,20 @@ else
     z = 0;
 end
 
+plotxX = zeros(uint8(no_of_iter));
+ploty = zeros(uint8(no_of_iter));
+plotxY = zeros(uint8(no_of_iter));
+plotxZ = zeros(uint8(no_of_iter));
+
 for a = 1:no_of_iter
     x = xfun(y, z);
     y = yfun(z, x);
     z = zfun(x, y);
+    
+    plotxX(a) = x;
+    ploty(a) = a;
+    plotxY(a) = y;
+    plotxZ(a) = z;
 end
+
+plot(ploty, plotxX, ploty, plotxY, ploty, plotxZ);

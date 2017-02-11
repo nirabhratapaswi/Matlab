@@ -26,11 +26,24 @@ xtemp = x;
 ytemp = y;
 ztemp = z;
 
+plotxX = zeros(uint8(no_of_iter));
+ploty = zeros(uint8(no_of_iter));
+plotxY = zeros(uint8(no_of_iter));
+plotxZ = zeros(uint8(no_of_iter));
+
 for a = 1:no_of_iter
     x = xfun(ytemp, ztemp);
     y = yfun(ztemp, xtemp);
     z = zfun(xtemp, ytemp);
+    
     xtemp = x;
     ytemp = y;
     ztemp = z;
+    
+    plotxX(a) = x;
+    ploty(a) = a;
+    plotxY(a) = y;
+    plotxZ(a) = z;
 end
+
+plot(ploty, plotxX, ploty, plotxY, ploty, plotxZ);
